@@ -12,6 +12,15 @@ class KaraokeBar:
             Guest("Pippin"),
             Guest("Merry"),
             Guest("Bilbo"),
-            Guest("Gandalf"),
+            Guest("Gandalf")
         ]
-        self.songs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        self.songs = [
+            Song("Africa", "Toto"),
+            Song("Don't Stop Believin'", "Journey"),
+            Song("Wonderwall", "Oasis"),
+            Song("Uptown Girl", "Billy Joel"),
+            Song("Ring of Fire", "Johnny Cash"),
+            Song("Angels", "Robbie Williams"),
+            Song("My Way", "Frank Sinatra"),
+            Song("Wannabe", "Spice Girls")
+        ]

@@ -21,6 +21,14 @@ class TestKaraokeBar(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_karaoke_bar_has_songs(self):
-        expected = 10
+        expected = 8
         actual = len(self.bar.songs)
         self.assertEqual(expected, actual)
+
+    def test_karaoke_bar_first_song_is_Africa_by_Toto(self):
+        self.assertEqual("Africa", self.bar.songs[0].title)
+        self.assertEqual("Toto", self.bar.songs[0].artist)
+
+    def test_karaoke_bar_third_song_is_Wonderwall_by_Oasis(self):
+        self.assertEqual("Wonderwall", self.bar.songs[2].title)
+        self.assertEqual("Oasis", self.bar.songs[2].artist)
