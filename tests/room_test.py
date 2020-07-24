@@ -31,3 +31,9 @@ class TestRoom(unittest.TestCase):
         actual = len(self.empty_room.playlist)
         self.assertEqual(expected, actual)
 
+    def test_playlist_items_are_song_objects(self):
+        self.empty_room.start_playlist(self.songs)
+        expected = "Uptown Girl"
+        actual = self.empty_room.playlist[3].title
+        self.assertEqual(expected, actual)
+
