@@ -7,14 +7,20 @@ from src.karaoke_bar import KaraokeBar
 
 
 class TestKaraokeBar(unittest.TestCase):
+    def setUp(self):
+        self.bar = KaraokeBar("CodeClanCaraoke")
+
     def test_karaoke_bar_has_name(self):
-        kbar = KaraokeBar("CodeClanCaraoke")
         expected = "CodeClanCaraoke"
-        actual = kbar.name
+        actual = self.bar.name
         self.assertEqual(expected, actual)
 
     def test_karaoke_bar_has_guests(self):
-        kbar = KaraokeBar("CodeClanCaraoke")
         expected = 6
-        actual = len(kbar.guests)
+        actual = len(self.bar.guests)
+        self.assertEqual(expected, actual)
+
+    def test_karaoke_bar_has_songs(self):
+        expected = 10
+        actual = len(self.bar.songs)
         self.assertEqual(expected, actual)
