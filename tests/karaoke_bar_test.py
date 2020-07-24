@@ -1,6 +1,14 @@
 import unittest
 
+from src.room import Room
+from src.guest import Guest
+from src.song import Song
 from src.karaoke_bar import KaraokeBar
 
+
 class TestKaraokeBar(unittest.TestCase):
-    pass
+    def test_karaoke_bar_has_name(self):
+        kbar = KaraokeBar("CodeClanCaraoke")
+        expected = "CodeClanCaraoke"
+        actual = kbar.name
+        self.assertEqual(expected, actual)
