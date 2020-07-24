@@ -66,7 +66,12 @@ class TestKaraokeBar(unittest.TestCase):
     def test_playlist_is_random_order(self):
         expected = self.songs_list
         actual = self.bar.make_playlist(self.bar.songs)
-        # combined = self.assertNotEqual(expected[0].title, actual[0].title) and self.assertNotEqual(expected[0].title, actual[0].title)
         index0 = expected[0].title == actual[0].title
         index1 = expected[1].title == actual[1].title
         self.assertFalse(index0 and index1)
+
+    def test_send_guest_to_room(self):
+        self.bar.send_guest_to_room(self.bar.guests[0])
+        expected = 1
+        actual = len(self.bar.rooms[0].guests)
+        self.assertEqual(expected, actual)

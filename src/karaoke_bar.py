@@ -37,3 +37,6 @@ class KaraokeBar:
                 playlist.append(self.songs[index])
             seen_index.append(index)
         return playlist
+
+    def send_guest_to_room(self, guest):
+        self.rooms[0].add_guest_to_room(guest)
