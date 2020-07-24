@@ -12,3 +12,9 @@ class TestKaraokeBar(unittest.TestCase):
         expected = "CodeClanCaraoke"
         actual = kbar.name
         self.assertEqual(expected, actual)
+
+    def test_karaoke_bar_has_guests(self):
+        kbar = KaraokeBar("CodeClanCaraoke")
+        expected = 6
+        actual = len(kbar.guests)
+        self.assertEqual(expected, actual)
