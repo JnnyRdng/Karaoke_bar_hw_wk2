@@ -11,3 +11,6 @@ class Room:
 
     def remove_guest(self, guest):
         self.guests.remove(guest)
+
+    def is_guest_in_room(self, guest):
+        return guest in self.guests

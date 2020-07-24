@@ -58,3 +58,10 @@ class TestRoom(unittest.TestCase):
         expected = 0
         actual = len(self.room.guests)
         self.assertEqual(expected, actual)
+
+    def test_is_guest_in_room(self):
+        expected = False
+        actual = self.room.is_guest_in_room(self.guest_not_in_room)
+        self.assertEqual(expected, actual)
+
+
