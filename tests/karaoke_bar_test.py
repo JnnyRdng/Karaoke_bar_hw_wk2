@@ -9,6 +9,14 @@ from src.karaoke_bar import KaraokeBar
 class TestKaraokeBar(unittest.TestCase):
     def setUp(self):
         self.bar = KaraokeBar("CodeClanCaraoke")
+        self.song = Song("Don't Stop Believin'", "Journey")
+        self.songs_list = [
+            Song("Africa", "Toto"),
+            Song("Don't Stop Believin'", "Journey"),
+            Song("Wonderwall", "Oasis"),
+            Song("Uptown Girl", "Billy Joel"),
+            Song("Ring of Fire", "Johnny Cash")
+        ]
 
     def test_karaoke_bar_has_name(self):
         expected = "CodeClanCaraoke"
@@ -49,3 +57,16 @@ class TestKaraokeBar(unittest.TestCase):
         actual = len(self.bar.make_playlist(self.bar.songs))
         self.assertEqual(expected, actual)
 
+    def test_make_playlist_returns_list_of_songs(self):
+        playlist = self.bar.make_playlist(self.bar.songs)
+        expected = True
+        actual = hasattr(playlist[0], "title")
+        self.assertEqual(expected, actual)
+
+    def test_playlist_is_random_order(self):
+        expected = self.songs_list
+        actual = self.bar.make_playlist(self.bar.songs)
+        # combined = self.assertNotEqual(expected[0].title, actual[0].title) and self.assertNotEqual(expected[0].title, actual[0].title)
+        index0 = expected[0].title == actual[0].title
+        index1 = expected[1].title == actual[1].title
+        self.assertFalse(index0 and index1)

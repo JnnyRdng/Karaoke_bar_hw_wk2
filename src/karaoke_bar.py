@@ -1,3 +1,5 @@
+from random import randint
+
 from src.room import Room
 from src.guest import Guest
 from src.song import Song
@@ -27,5 +29,11 @@ class KaraokeBar:
         self.rooms = [Room(), Room()]
 
     def make_playlist(self, songs):
-        return [1, 2, 3, 4, 5]
-
+        seen_index = []
+        playlist = []
+        while len(playlist) < 5:
+            index = randint(0, len(self.songs) - 1)
+            if index not in seen_index:
+                playlist.append(self.songs[index])
+            seen_index.append(index)
+        return playlist
