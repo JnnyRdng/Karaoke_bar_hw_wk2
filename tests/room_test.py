@@ -59,9 +59,21 @@ class TestRoom(unittest.TestCase):
         actual = len(self.room.guests)
         self.assertEqual(expected, actual)
 
+    def test_guest_can_leave_a_room__return(self):
+        self.room.add_guest_to_room(self.guest)
+        expected = True
+        actual = self.room.remove_guest(self.guest)
+        self.assertEqual(expected, actual)
+
     def test_is_guest_in_room(self):
         expected = False
         actual = self.room.is_guest_in_room(self.guest_not_in_room)
+        self.assertEqual(expected, actual)
+
+    def test_guest_cant_leave_room_theyre_not_in(self):
+        self.room.add_guest_to_room(self.guest)
+        expected = False
+        actual = self.room.remove_guest(self.guest_not_in_room)
         self.assertEqual(expected, actual)
 
 
