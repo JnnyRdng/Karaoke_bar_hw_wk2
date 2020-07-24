@@ -16,6 +16,7 @@ class TestRoom(unittest.TestCase):
             Song("Ring of Fire", "Johnny Cash"),
         ]
         self.guest = Guest("Timmy")
+        self.guest_not_in_room = Guest("Jimmy")
 
     def test_empty_room_has_no_guests(self):
         expected = []
@@ -49,4 +50,11 @@ class TestRoom(unittest.TestCase):
         self.room.add_guest_to_room(self.guest)
         expected = "Timmy"
         actual = self.room.guests[0].name
+        self.assertEqual(expected, actual)
+
+    def test_guest_can_leave_a_room(self):
+        self.room.add_guest_to_room(self.guest)
+        self.room.remove_guest(self.guest)
+        expected = 0
+        actual = len(self.room.guests)
         self.assertEqual(expected, actual)
