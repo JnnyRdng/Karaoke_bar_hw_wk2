@@ -40,3 +40,4 @@ class KaraokeBar:
 
     def send_guest_to_room(self, guest):
         self.rooms[0].add_guest_to_room(guest)
+        self.guests.remove(guest)
