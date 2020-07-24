@@ -24,3 +24,4 @@ class KaraokeBar:
             Song("My Way", "Frank Sinatra"),
             Song("Wannabe", "Spice Girls")
         ]
+        self.rooms = [1, 2]
