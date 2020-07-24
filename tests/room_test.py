@@ -45,3 +45,8 @@ class TestRoom(unittest.TestCase):
         actual = len(self.room.guests)
         self.assertEqual(expected, actual)
 
+    def test_add_guest_to_room_adds_guest_object(self):
+        self.room.add_guest_to_room(self.guest)
+        expected = "Timmy"
+        actual = self.room.guests[0].name
+        self.assertEqual(expected, actual)
