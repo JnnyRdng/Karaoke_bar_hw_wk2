@@ -96,3 +96,12 @@ class TestKaraokeBar(unittest.TestCase):
         expected = []
         actual = self.bar.guests_in_rooms
         self.assertEqual(expected, actual)
+
+    def test_new_guest_enters(self):
+        self.bar.grant_admission(self.guest)
+        expected = 7
+        actual = len(self.bar.guests)
+        self.assertEqual(expected, actual)
+
+    
+        
