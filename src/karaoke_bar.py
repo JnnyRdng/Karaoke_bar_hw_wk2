@@ -52,4 +52,5 @@ class KaraokeBar:
             guest_list = room.return_guest_list()
             if guest in guest_list:
                 room.remove_guest(guest)
+                self.guests_in_rooms.remove(guest)
                 self.guests.append(guest)
