@@ -27,6 +27,7 @@ class KaraokeBar:
             Song("Wannabe", "Spice Girls"),
         ]
         self.rooms = [Room(), Room()]
+        self.guests_in_rooms = []
 
     def make_playlist(self, songs):
         seen_index = []
