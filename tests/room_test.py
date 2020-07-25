@@ -76,4 +76,10 @@ class TestRoom(unittest.TestCase):
         actual = self.room.remove_guest(self.guest_not_in_room)
         self.assertEqual(expected, actual)
 
+    def test_room_returns_guest_list(self):
+        self.room.add_guest_to_room(self.guest)
+        expected = [self.guest]
+        actual = self.room.return_guest_list()
+        self.assertEqual(expected, actual)
+
 

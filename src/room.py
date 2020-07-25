@@ -17,3 +17,6 @@ class Room:
 
     def is_guest_in_room(self, guest):
         return guest in self.guests
+
+    def return_guest_list(self):
+        return self.guests
