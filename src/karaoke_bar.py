@@ -41,3 +41,10 @@ class KaraokeBar:
     def send_guest_to_room(self, guest):
         self.rooms[0].add_guest_to_room(guest)
         self.guests.remove(guest)
+
+    def return_guest_from_room(self, guest):
+        for room in self.rooms:
+            guest_list = room.return_guest_list()
+            if guest in guest_list:
+                room.remove_guest(guest)
+                self.guests.append(guest)

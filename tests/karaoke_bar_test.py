@@ -17,6 +17,7 @@ class TestKaraokeBar(unittest.TestCase):
             Song("Uptown Girl", "Billy Joel"),
             Song("Ring of Fire", "Johnny Cash")
         ]
+        self.guest = Guest("Timmy")
 
     def test_karaoke_bar_has_name(self):
         expected = "CodeClanCaraoke"
@@ -68,7 +69,8 @@ class TestKaraokeBar(unittest.TestCase):
         actual = self.bar.make_playlist(self.bar.songs)
         index0 = expected[0].title == actual[0].title
         index1 = expected[1].title == actual[1].title
-        self.assertFalse(index0 and index1)
+        index2 = expected[2].title == actual[2].title
+        self.assertFalse(index0 and index1 and index2)
 
     def test_send_guest_to_room(self):
         self.bar.send_guest_to_room(self.bar.guests[0])
@@ -79,5 +81,13 @@ class TestKaraokeBar(unittest.TestCase):
     def test_sending_a_guest_to_a_room_removes_from_bar(self):
         self.bar.send_guest_to_room(self.bar.guests[0])
         expected = 5
+        actual = len(self.bar.guests)
+        self.assertEqual(expected, actual)
+
+    def test_guests_returns_from_a_room(self):
+        guest = self.bar.guests[0]
+        self.bar.send_guest_to_room(guest)
+        self.bar.return_guest_from_room(guest)
+        expected = 6
         actual = len(self.bar.guests)
         self.assertEqual(expected, actual)
