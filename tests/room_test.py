@@ -15,8 +15,8 @@ class TestRoom(unittest.TestCase):
             Song("Uptown Girl", "Billy Joel"),
             Song("Ring of Fire", "Johnny Cash"),
         ]
-        self.guest = Guest("Timmy")
-        self.guest_not_in_room = Guest("Jimmy")
+        self.guest = Guest("Timmy", 20)
+        self.guest_not_in_room = Guest("Jimmy", 40)
 
     def test_empty_room_has_no_guests(self):
         expected = []
@@ -94,30 +94,30 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_room_has_more_guests_than_max(self):
-        self.room.add_guest_to_room(Guest("Timmy"))
-        self.room.add_guest_to_room(Guest("Timmy"))
-        self.room.add_guest_to_room(Guest("Timmy"))
-        self.room.add_guest_to_room(Guest("Timmy"))
-        self.room.add_guest_to_room(Guest("Timmy"))
+        self.room.add_guest_to_room(Guest("Timmy", 20))
+        self.room.add_guest_to_room(Guest("Timmy", 20))
+        self.room.add_guest_to_room(Guest("Timmy", 20))
+        self.room.add_guest_to_room(Guest("Timmy", 20))
+        self.room.add_guest_to_room(Guest("Timmy", 20))
         expected = False
         actual = self.room.room_has_space()
         self.assertEqual(expected, actual)
 
     def test_room_cant_add_guests_past_max(self):
-        self.room.add_guest_to_room(Guest("Jimmy"))
-        self.room.add_guest_to_room(Guest("Jimmy"))
-        self.room.add_guest_to_room(Guest("Jimmy"))
-        self.room.add_guest_to_room(Guest("Jimmy"))
+        self.room.add_guest_to_room(Guest("Jimmy", 40))
+        self.room.add_guest_to_room(Guest("Jimmy", 40))
+        self.room.add_guest_to_room(Guest("Jimmy", 40))
+        self.room.add_guest_to_room(Guest("Jimmy", 40))
         expected = 3
         actual = len(self.room.guests)
         self.assertEqual(expected, actual)
 
     def test_room_cant_add_guests_past_max__return_False(self):
-        self.room.add_guest_to_room(Guest("Jimmy"))
-        self.room.add_guest_to_room(Guest("Jimmy"))
-        self.room.add_guest_to_room(Guest("Jimmy"))
+        self.room.add_guest_to_room(Guest("Jimmy", 40))
+        self.room.add_guest_to_room(Guest("Jimmy", 40))
+        self.room.add_guest_to_room(Guest("Jimmy", 40))
         expected = False
-        actual = self.room.add_guest_to_room(Guest("Jimmy"))
+        actual = self.room.add_guest_to_room(Guest("Jimmy", 40))
         self.assertEqual(expected, actual)
 
     def test_room_has_entry_fee(self):

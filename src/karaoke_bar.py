@@ -9,12 +9,12 @@ class KaraokeBar:
     def __init__(self, name):
         self.name = name
         self.guests = [
-            Guest("Frodo"),
-            Guest("Sam"),
-            Guest("Pippin"),
-            Guest("Merry"),
-            Guest("Bilbo"),
-            Guest("Gandalf"),
+            Guest("Frodo", 5),
+            Guest("Sam", 40),
+            Guest("Pippin", 40),
+            Guest("Merry", 50),
+            Guest("Bilbo", 50),
+            Guest("Gandalf", 50),
         ]
         self.songs = [
             Song("Africa", "Toto"),

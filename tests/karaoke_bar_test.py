@@ -17,7 +17,7 @@ class TestKaraokeBar(unittest.TestCase):
             Song("Uptown Girl", "Billy Joel"),
             Song("Ring of Fire", "Johnny Cash")
         ]
-        self.guest = Guest("Timmy")
+        self.guest = Guest("Timmy", 10)
 
     def test_karaoke_bar_has_name(self):
         expected = "CodeClanCaraoke"
@@ -104,7 +104,7 @@ class TestKaraokeBar(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_list_of_guests_in_rooms_after_assigned_room(self):
-        guest = Guest("Billy")
+        guest = Guest("Billy", 10)
         self.bar.grant_admission(guest)
         self.bar.send_guest_to_room(guest)
         expected = [guest]
@@ -112,7 +112,7 @@ class TestKaraokeBar(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_guest_not_in_rooms_list_when_they_leave_room(self):
-        guest = Guest("Billy")
+        guest = Guest("Billy", 10)
         self.bar.grant_admission(guest)
         self.bar.send_guest_to_room(guest)
         self.bar.return_guest_from_room(guest)
