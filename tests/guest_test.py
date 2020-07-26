@@ -77,5 +77,8 @@ class TestGuest(unittest.TestCase):
         actual = guest.thats_my_jam(self.songs)
         self.assertEqual(expected, actual)
 
-    # def test_guest_favourite_song_not_in_playlist
+    def test_guest_favourite_song_not_in_playlist(self):
+        guest = Guest("Jimmy", 60, "Macarana")
+        actual = guest.thats_my_jam(self.songs)
+        self.assertIsNone(actual)
         
