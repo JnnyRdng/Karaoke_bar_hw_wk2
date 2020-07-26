@@ -29,6 +29,11 @@ class KaraokeBar:
         self.rooms = [Room(), Room()]
         self.guests_in_rooms = []
 
+    def find_guest_by_name(self, name):
+        for guest in self.guests:
+            if guest.name == name:
+                return guest
+
     def make_playlist(self, songs):
         seen_index = []
         playlist = []
