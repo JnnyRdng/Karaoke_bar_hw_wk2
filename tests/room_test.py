@@ -119,3 +119,8 @@ class TestRoom(unittest.TestCase):
         expected = False
         actual = self.room.add_guest_to_room(Guest("Jimmy"))
         self.assertEqual(expected, actual)
+
+    def test_room_has_entry_fee(self):
+        expected = 10
+        actual = self.room.entry_fee
+        self.assertEqual(expected, actual)

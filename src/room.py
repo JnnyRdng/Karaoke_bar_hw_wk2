@@ -3,6 +3,7 @@ class Room:
         self.guests = []
         self.playlist = []
         self.max_size = 3
+        self.entry_fee = 10
 
     def start_playlist(self, playlist):
         self.playlist += playlist
