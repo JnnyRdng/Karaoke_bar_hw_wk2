@@ -67,3 +67,6 @@ class KaraokeBar:
                 self.guests_in_rooms.remove(guest)
                 self.guests.append(guest)
                 break
+
+    def add_to_till(self, amount):
+        self.till += amount

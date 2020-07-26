@@ -169,3 +169,9 @@ class TestKaraokeBar(unittest.TestCase):
         expected = 1000
         actual = self.bar.till
         self.assertEqual(expected, actual)
+
+    def test_add_money_to_till(self):
+        self.bar.add_to_till(50)
+        expected = 1050
+        actual = self.bar.till
+        self.assertEqual(expected, actual)
