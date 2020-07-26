@@ -54,3 +54,10 @@ class TestGuest(unittest.TestCase):
         guest = Guest("Morty", 20)
         actual = guest.favourite_song
         self.assertIsNone(actual)
+
+    def test_guest_has_a_favourite_song(self):
+        guest = Guest("Morty", 20, "Macarana")
+        expected = "Macarana"
+        actual = guest.favourite_song
+        self.assertEqual(expected, actual)
+        
