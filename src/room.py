@@ -32,4 +32,4 @@ class Room:
         return True
 
     def enough_money(self, guest):
-        return True
+        return guest.wallet >= self.entry_fee
