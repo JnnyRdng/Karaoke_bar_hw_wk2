@@ -51,6 +51,7 @@ class KaraokeBar:
         for room in self.rooms:
             if room.add_guest_to_room(guest):
                 self.guests_in_rooms.append(guest)
+                guest.changed_location()
                 self.guests.remove(guest)
                 break
             
