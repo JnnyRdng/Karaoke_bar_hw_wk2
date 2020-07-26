@@ -49,3 +49,8 @@ class TestGuest(unittest.TestCase):
         expected = 5
         actual = guest.wallet
         self.assertEqual(expected, actual)
+
+    def test_guest_might_have_favourite_song(self):
+        guest = Guest("Morty", 20)
+        actual = guest.favourite_song
+        self.assertIsNone(actual)
