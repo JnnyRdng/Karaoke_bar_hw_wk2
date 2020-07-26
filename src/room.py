@@ -23,4 +23,6 @@ class Room:
         return self.guests
 
     def room_has_space(self):
+        if len(self.guests) > self.max_size:
+            return False
         return True

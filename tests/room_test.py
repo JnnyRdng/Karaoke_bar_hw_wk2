@@ -92,3 +92,13 @@ class TestRoom(unittest.TestCase):
         expected = True
         actual = self.room.room_has_space()
         self.assertEqual(expected, actual)
+
+    def test_room_has_more_guests_than_max(self):
+        self.room.add_guest_to_room(Guest("Timmy"))
+        self.room.add_guest_to_room(Guest("Timmy"))
+        self.room.add_guest_to_room(Guest("Timmy"))
+        self.room.add_guest_to_room(Guest("Timmy"))
+        self.room.add_guest_to_room(Guest("Timmy"))
+        expected = False
+        actual = self.room.room_has_space()
+        self.assertEqual(expected, actual)
