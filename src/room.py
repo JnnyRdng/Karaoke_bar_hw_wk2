@@ -21,3 +21,6 @@ class Room:
 
     def return_guest_list(self):
         return self.guests
+
+    def room_has_space(self):
+        return True
