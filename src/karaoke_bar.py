@@ -12,7 +12,7 @@ class KaraokeBar:
             Guest("Frodo", 50),
             Guest("Sam", 40),
             Guest("Pippin", 40),
-            Guest("Merry", 50),
+            Guest("Merry", 50, "Wonderwall"),
             Guest("Bilbo", 1),
             Guest("Gandalf", 50),
         ]
@@ -39,14 +39,16 @@ class KaraokeBar:
                 return guest
 
     def make_playlist(self, songs):
-        seen_index = []
-        playlist = []
-        while len(playlist) < 5:
-            index = randint(0, len(self.songs) - 1)
-            if index not in seen_index:
-                playlist.append(self.songs[index])
-            seen_index.append(index)
-        return playlist
+        for room in self.rooms:
+            seen_index = []
+            playlist = []
+            while len(playlist) < 5:
+                index = randint(0, len(self.songs) - 1)
+                if index not in seen_index:
+                    playlist.append(self.songs[index])
+                seen_index.append(index)
+            # return playlist
+            room.start_playlist(playlist)
 
     def send_guest_to_room(self, guest):
         for room in self.rooms:

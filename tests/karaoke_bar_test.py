@@ -54,19 +54,22 @@ class TestKaraokeBar(unittest.TestCase):
 
     # karaoke bar needs to make playlists for rooms
     def test_can_make_5_song_playlist_for_room(self):
+        self.bar.make_playlist(self.bar.songs)
         expected = 5
-        actual = len(self.bar.make_playlist(self.bar.songs))
+        actual = len(self.bar.rooms[0].playlist)
         self.assertEqual(expected, actual)
 
     def test_make_playlist_returns_list_of_songs(self):
-        playlist = self.bar.make_playlist(self.bar.songs)
+        self.bar.make_playlist(self.bar.songs)
+        playlist = self.bar.rooms[0].playlist
         expected = True
         actual = hasattr(playlist[0], "title")
         self.assertEqual(expected, actual)
 
     def test_playlist_is_random_order(self):
         expected = self.songs_list
-        actual = self.bar.make_playlist(self.bar.songs)
+        self.bar.make_playlist(self.bar.songs)
+        actual = self.bar.rooms[0].playlist
         index0 = expected[0].title == actual[0].title
         index1 = expected[1].title == actual[1].title
         index2 = expected[2].title == actual[2].title
@@ -189,3 +192,10 @@ class TestKaraokeBar(unittest.TestCase):
         expected = 40
         actual = guest.wallet
         self.assertEqual(expected, actual)
+
+    def test_guest_shouts_woo_if_added_to_room_with_fav_song(self):
+        guest = self.bar.find_guest_by_name("Merry")
+        self.bar.make_playlist(self.bar.songs)
+        self.bar.send_guest_to_room(guest)
+        # captured = self.capsys.readouterr()
+        # self.assertEqual("Wooooo!",)

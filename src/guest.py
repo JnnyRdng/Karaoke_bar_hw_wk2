@@ -14,4 +14,5 @@ class Guest:
     def thats_my_jam(self, songs):
         for song in songs:
             if self.favourite_song == song.title:
+                print("Wooooo!")
                 return "Wooooo!"

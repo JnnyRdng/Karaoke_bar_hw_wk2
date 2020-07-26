@@ -11,6 +11,7 @@ class Room:
     def add_guest_to_room(self, guest):
         if self.room_has_space():
             self.guests.append(guest)
+            guest.thats_my_jam(self.playlist)
             return True
         return False
 
