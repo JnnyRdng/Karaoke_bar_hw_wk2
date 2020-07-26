@@ -6,3 +6,6 @@ class Guest:
 
     def changed_location(self):
         self.in_room = not self.in_room
+
+    def spend_money(self, amount):
+        self.wallet -= amount
