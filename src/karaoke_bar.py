@@ -9,11 +9,11 @@ class KaraokeBar:
     def __init__(self, name):
         self.name = name
         self.guests = [
-            Guest("Frodo", 5),
+            Guest("Frodo", 50),
             Guest("Sam", 40),
             Guest("Pippin", 40),
             Guest("Merry", 50),
-            Guest("Bilbo", 50),
+            Guest("Bilbo", 1),
             Guest("Gandalf", 50),
         ]
         self.songs = [
@@ -49,7 +49,7 @@ class KaraokeBar:
 
     def send_guest_to_room(self, guest):
         for room in self.rooms:
-            if room.add_guest_to_room(guest):
+            if room.add_guest_to_room(guest) and room.enough_money(guest):
                 self.guests_in_rooms.append(guest)
                 guest.changed_location()
                 self.guests.remove(guest)

@@ -157,5 +157,10 @@ class TestKaraokeBar(unittest.TestCase):
         actual = frodo.in_room
         self.assertEqual(expected, actual)
 
+    def test_guest_cant_afford_to_enter_room(self):
+        guest = self.bar.find_guest_by_name("Bilbo")
+        self.bar.send_guest_to_room(guest)
+        expected = 6
+        actual = len(self.bar.guests)
+        self.assertEqual(expected, actual)
 
-    # def guest_can_afford_to_enter_room(self):
