@@ -40,9 +40,9 @@ class KaraokeBar:
         return playlist
 
     def send_guest_to_room(self, guest):
-        self.rooms[0].add_guest_to_room(guest)
-        self.guests_in_rooms.append(guest)
-        self.guests.remove(guest)
+        if self.rooms[0].add_guest_to_room(guest):
+            self.guests_in_rooms.append(guest)
+            self.guests.remove(guest)
         
     def grant_admission(self, guest):
         self.guests.append(guest)
