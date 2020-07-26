@@ -143,5 +143,12 @@ class TestKaraokeBar(unittest.TestCase):
         actual = self.bar.find_guest_by_name("Frodo")
         self.assertEqual(expected, actual.name)
 
+    def test_find_guest_even_if_in_room(self):
+        sam = self.bar.find_guest_by_name("Sam")
+        self.bar.send_guest_to_room(sam)
+        expected = "Sam"
+        actual = self.bar.find_guest_by_name("Sam")
+        self.assertEqual(expected, actual.name)
+
 
     # def guest_can_afford_to_enter_room(self):

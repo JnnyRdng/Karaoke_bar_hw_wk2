@@ -33,6 +33,9 @@ class KaraokeBar:
         for guest in self.guests:
             if guest.name == name:
                 return guest
+        for guest in self.guests_in_rooms:
+            if guest.name == name:
+                return guest
 
     def make_playlist(self, songs):
         seen_index = []
