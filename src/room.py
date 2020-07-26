@@ -8,7 +8,10 @@ class Room:
         self.playlist += playlist
 
     def add_guest_to_room(self, guest):
-        self.guests.append(guest)
+        if self.room_has_space():
+            self.guests.append(guest)
+            return True
+        return False
 
     def remove_guest(self, guest):
         in_room = self.is_guest_in_room(guest)
@@ -23,6 +26,6 @@ class Room:
         return self.guests
 
     def room_has_space(self):
-        if len(self.guests) > self.max_size:
+        if len(self.guests) >= self.max_size:
             return False
         return True
