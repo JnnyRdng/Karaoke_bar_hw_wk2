@@ -129,3 +129,11 @@ class TestKaraokeBar(unittest.TestCase):
         actual = len(self.bar.rooms[0].return_guest_list())
         self.assertEqual(expected, actual)
         
+    def test_guest_sent_to_different_room_if_first_room_full(self):
+        self.bar.send_guest_to_room(self.bar.guests[0])
+        self.bar.send_guest_to_room(self.bar.guests[0])
+        self.bar.send_guest_to_room(self.bar.guests[0])
+        self.bar.send_guest_to_room(self.bar.guests[0])
+        expected = 1
+        actual = len(self.bar.rooms[1].return_guest_list())
+        self.assertEqual(expected, actual)
