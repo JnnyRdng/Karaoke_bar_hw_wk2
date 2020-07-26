@@ -3,3 +3,6 @@ class Guest:
         self.name = name
         self.wallet = wallet
         self.in_room = False
+
+    def changed_location(self):
+        self.in_room = True

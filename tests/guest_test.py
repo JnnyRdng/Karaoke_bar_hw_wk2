@@ -27,3 +27,10 @@ class TestGuest(unittest.TestCase):
         expected = False
         actual = guest.in_room
         self.assertEqual(expected, actual)
+
+    def test_guest_in_room_knows_theyve_entered(self):
+        guest = Guest("Ricky", 20)
+        guest.changed_location()
+        expected = True
+        actual = guest.in_room
+        self.assertEqual(expected, actual)
