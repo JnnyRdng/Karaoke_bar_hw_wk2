@@ -28,6 +28,7 @@ class KaraokeBar:
         ]
         self.rooms = [Room(), Room()]
         self.guests_in_rooms = []
+        self.till = 1000
 
     def find_guest_by_name(self, name):
         for guest in self.guests:

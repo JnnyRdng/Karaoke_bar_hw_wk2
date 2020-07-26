@@ -164,3 +164,8 @@ class TestKaraokeBar(unittest.TestCase):
         actual = len(self.bar.guests)
         self.assertEqual(expected, actual)
 
+    #advanced extensions
+    def test_bar_has_a_till(self):
+        expected = 1000
+        actual = self.bar.till
+        self.assertEqual(expected, actual)
