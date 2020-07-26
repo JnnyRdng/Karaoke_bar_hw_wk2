@@ -9,3 +9,9 @@ class TestGuest(unittest.TestCase):
         expected = "Rick"
         actual = guest.name
         self.assertEqual(expected, actual)
+
+    def test_guest_has_a_wallet(self):
+        guest = Guest("Rick")
+        expected = 0
+        actual = guest.wallet
+        self.assertEqual(expected, actual)
