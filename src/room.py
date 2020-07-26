@@ -2,6 +2,7 @@ class Room:
     def __init__(self):
         self.guests = []
         self.playlist = []
+        self.max_size = 3
 
     def start_playlist(self, playlist):
         self.playlist += playlist

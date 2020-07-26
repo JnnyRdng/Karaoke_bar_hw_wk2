@@ -82,4 +82,8 @@ class TestRoom(unittest.TestCase):
         actual = self.room.return_guest_list()
         self.assertEqual(expected, actual)
 
-
+    #extensions
+    def test_max_room_size_set(self):
+        expected = 3
+        actual = self.room.max_size
+        self.assertEqual(expected, actual)
