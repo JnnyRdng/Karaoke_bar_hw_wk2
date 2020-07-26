@@ -10,3 +10,8 @@ class Guest:
 
     def spend_money(self, amount):
         self.wallet -= amount
+
+    def thats_my_jam(self, songs):
+        for song in songs:
+            if self.favourite_song == song.title:
+                return "Wooooo!"

@@ -1,8 +1,18 @@
 import unittest
 
 from src.guest import Guest
+from src.song import Song
 
 class TestGuest(unittest.TestCase):
+
+    def setUp(self):
+        self.songs = [
+            Song("Africa", "Toto"),
+            Song("Don't Stop Believin'", "Journey"),
+            Song("Wonderwall", "Oasis"),
+            Song("Uptown Girl", "Billy Joel"),
+            Song("Ring of Fire", "Johnny Cash")
+        ]
     
     def test_can_make_a_guest_with_name(self):
         guest = Guest("Rick", 0)
@@ -60,4 +70,12 @@ class TestGuest(unittest.TestCase):
         expected = "Macarana"
         actual = guest.favourite_song
         self.assertEqual(expected, actual)
+
+    def test_guest_excited_if_favourite_song_in_room(self):
+        guest = Guest("Jimmy", 60, "Africa")
+        expected = "Wooooo!"
+        actual = guest.thats_my_jam(self.songs)
+        self.assertEqual(expected, actual)
+
+    # def test_guest_favourite_song_not_in_playlist
         
