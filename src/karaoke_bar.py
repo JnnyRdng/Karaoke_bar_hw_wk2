@@ -52,6 +52,7 @@ class KaraokeBar:
         for room in self.rooms:
             if room.add_guest_to_room(guest) and room.enough_money(guest):
                 self.add_to_till(room.entry_fee)
+                guest.spend_money(room.entry_fee)
                 self.guests_in_rooms.append(guest)
                 guest.changed_location()
                 self.guests.remove(guest)
