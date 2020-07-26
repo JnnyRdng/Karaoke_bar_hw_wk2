@@ -22,4 +22,8 @@ class TestGuest(unittest.TestCase):
         actual = guest.wallet
         self.assertEqual(expected, actual)
 
-
+    def test_guest_knows_if_theyre_in_a_room(self):
+        guest = Guest("Ricky", 20)
+        expected = False
+        actual = guest.in_room
+        self.assertEqual(expected, actual)
