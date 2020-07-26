@@ -30,3 +30,6 @@ class Room:
         if len(self.guests) >= self.max_size:
             return False
         return True
+
+    def enough_money(self, guest):
+        return True
