@@ -15,3 +15,11 @@ class TestGuest(unittest.TestCase):
         expected = 0
         actual = guest.wallet
         self.assertEqual(expected, actual)
+
+    def test_can_pass_in_value_to_wallet(self):
+        guest = Guest("Ricky", 20)
+        expected = 20
+        actual = guest.wallet
+        self.assertEqual(expected, actual)
+
+

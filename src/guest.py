@@ -1,4 +1,4 @@
 class Guest:
-    def __init__(self, name):
+    def __init__(self, name, wallet=0):
         self.name = name
-        self.wallet = 0
+        self.wallet = wallet
